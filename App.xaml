@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:Balogh_Tamas_WPF_Hattertar"
              >
     <Application.Resources>
-         
+        <ResourceDictionary Source="Themes/Templates.xaml"/>
     </Application.Resources>
 </Application>

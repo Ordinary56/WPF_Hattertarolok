@@ -28,7 +28,10 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Label Content="Kapacitás" VerticalAlignment="Center"/>
+            <Border Grid.ColumnSpan="3">
+                <Label Content="Kapacitás" VerticalAlignment="Center"
+                       HorizontalAlignment="Left"/>
+            </Border>
             <TextBox Text="{Binding Capacity, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" VerticalAlignment="Center"/>
             <ComboBox Grid.Column="2" VerticalAlignment="Center" 
                       SelectedValue="{Binding CapacityType, 
@@ -39,11 +42,21 @@
                 <ComboBoxItem Content="GB"/>
                 <ComboBoxItem Content="TB"/>
             </ComboBox>
-            <Label Grid.Row="1" Content="Átviteli Sebesség: " VerticalAlignment="Center"/>
+            <Border Grid.Row="1" Grid.ColumnSpan="3">
+                <Label Grid.Row="1" Content="Átviteli Sebesség: " 
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Left"/>
+            </Border>
             <Slider Grid.Row="1" Grid.Column="1" Minimum="10" Maximum="5000" 
+                    x:Name="slider"
                     VerticalAlignment="Center" AutoToolTipPlacement="BottomRight"
                     TickFrequency="1"
                     Value="{Binding Speed, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBlock Grid.Row="1" Grid.Column="1" 
+                       Text="{Binding Value, ElementName=slider, StringFormat=N0}" 
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Center"
+                       Margin="0 10 0 0"/>
             <ComboBox Grid.Row="1" Grid.Column="2"
                       VerticalAlignment="Center" 
                       SelectedValue="{Binding SpeedType, 
