@@ -1,0 +1,9 @@
+﻿<Application x:Class="Balogh_Tamas_WPF_Hattertar.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Balogh_Tamas_WPF_Hattertar"
+             >
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>

@@ -1,0 +1,69 @@
+﻿<Window x:Class="Balogh_Tamas_WPF_Hattertar.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Balogh_Tamas_WPF_Hattertar"
+        mc:Ignorable="d"
+        Title="Window" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="500"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Content="Kapacitás" VerticalAlignment="Center"/>
+            <TextBox Text="{Binding Capacity, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" VerticalAlignment="Center"/>
+            <ComboBox Grid.Column="2" VerticalAlignment="Center" 
+                      SelectedValue="{Binding CapacityType, 
+                      UpdateSourceTrigger=PropertyChanged}" 
+                      SelectedValuePath="Content"
+                      SelectedIndex="0">
+                <ComboBoxItem Content="MB"/>
+                <ComboBoxItem Content="GB"/>
+                <ComboBoxItem Content="TB"/>
+            </ComboBox>
+            <Label Grid.Row="1" Content="Átviteli Sebesség: " VerticalAlignment="Center"/>
+            <Slider Grid.Row="1" Grid.Column="1" Minimum="10" Maximum="5000" 
+                    VerticalAlignment="Center" AutoToolTipPlacement="BottomRight"
+                    TickFrequency="1"
+                    Value="{Binding Speed, UpdateSourceTrigger=PropertyChanged}"/>
+            <ComboBox Grid.Row="1" Grid.Column="2"
+                      VerticalAlignment="Center" 
+                      SelectedValue="{Binding SpeedType, 
+                      UpdateSourceTrigger=PropertyChanged}" 
+                      SelectedValuePath="Content"
+                      SelectedIndex="0">
+                <ComboBoxItem Content="Kbps"/>
+                <ComboBoxItem Content="Mbps"/>
+                <ComboBoxItem Content="mbps"/>
+                <ComboBoxItem Content="Gbps"/>
+            </ComboBox>
+            <Button Content="Számol" Grid.Row="2" VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Command="{Binding ResultCommand}"/>
+        </Grid>
+        <TextBlock Text="{Binding Result, UpdateSourceTrigger=PropertyChanged}" 
+                   Grid.Column="1"
+                   Grid.Row="1"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Center"
+                   />
+    </Grid>
+</Window>
